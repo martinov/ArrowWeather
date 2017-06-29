@@ -22,7 +22,11 @@ const WeatherAPI = Arrow.API.extend({
 		weather.setLang(req.server.config.openweathermaps.lang);
 		weather.setUnits(req.server.config.openweathermaps.units);
 
-		weather.setCity('Sofia'); // use req.parameters instead
+		var location = 'Sofia';
+		if (req.query.loc) {
+			location = req.query.loc;
+		}
+		weather.setCity(location);
 
 		weather.getWeatherForecastForDays(5, function(err, result) {
 			if (err) {

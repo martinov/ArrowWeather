@@ -23,7 +23,7 @@ const WeatherAPI = Arrow.API.extend({
 		weather.setUnits(req.server.config.openweathermaps.units);
 
 		var location = 'Sofia';
-		if (req.query.loc) {
+		if (req.query != undefined && req.query.loc) {
 			location = req.query.loc;
 		}
 		weather.setCity(location);

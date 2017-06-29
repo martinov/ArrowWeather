@@ -1,0 +1,47 @@
+<html>
+<head>
+  <style>
+      body {
+        width: 100%;
+        margin: 2em 0em;
+        padding: 0px;
+      }
+      .container {
+        text-align: center;
+        width: 300px;
+        margin: auto;
+      }
+      .forecast .day {
+          margin: 10px;
+          padding: 5px;
+      }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h3>Weather for {{location}}</h3>
+    <h4>{{lon_lat}}</h4>
+
+    {{#if error}}
+    <div class="error">{{error}}</div>
+    {{/if}}
+
+    <div>Lowest Temperatures: {{minTemperatures}}</div>
+    <div>Highest Temperatures: {{maxTemperatures}}</div>
+
+    <div class="forecast">
+      {{#each days}}
+        <div class="day">
+            <div>Date: {{dateStr}} / {{dayOfWeek}}</div>
+            <div>{{summary}}</div>
+            <div>Min Temp: {{tempMin}}</div>
+            <div>Max Temp: {{tempMax}}</div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</body>
+
+</html>
